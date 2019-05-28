@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <h1 class="col-md-5">
+        <span>VUTTR</span>
+    </h1>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <h3 class="col-md-5">
+        <span>Very Useful Tools Remember</span>
+    </h3>
+</div>
+<br>
+
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="box box-solid fundo">
+
+            <div class="row">
+                <form [formGroup]="form">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                <input type="text" class="form-control" placeholder=" Search..." formControlName="busca" (keyup)="buscar()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" formControlName="tipo"> Search in tags only
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-md-2">
+                    <button class="btn btn-primary btnn" type="button" data-toggle="modal" data-target="#add"> <i class="fa fa-plus"></i> Adicionar</button>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="box box-solid" *ngFor="let d of dado">
+            <div class="box-header">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4 class="modal-title"><a href="{{d.link}}">{{d.title}}</a> </h4>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#remove"><i class="fa fa-close"></i> Remove</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <p>{{d.description}}</p>
+                <p><b>#teste</b></p>
+            </div>
+            <!-- /.box-bod -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+
+
+<!-- Modal para add nova ferramenta -->
+<div class="modal fade" id="add">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="fa fa-plus"></i> Add new tool</h4>
+            </div>
+            <div class="modal-body">
+                <app-add></app-add>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para remover a ferramenta -->
+<div class="modal fade" id="remove">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="fa fa-close"></i> Remove tool</h4>
+            </div>
+            <div class="modal-body">
+                <p>are you sure you want to remove hotel?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btnn">Yes, remove</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
