@@ -19,11 +19,19 @@ export class DadosService {
     private router: Router) { }
 
     add(dados){
-      return this.data.post('/tools', dados)
+      return this.data.post(`/tools`, dados)
+    }
+
+    remove(id){
+      return this.data.delete(`/tools/`, {id})
     }
 
     listTool(){
-      return this.data.get('/tools');
+      return this.data.get(`/tools`);
+    }
+
+    listToolID(id){
+      return this.data.get(`/tools?q=${id}`)
     }
 
     listToolTag(){

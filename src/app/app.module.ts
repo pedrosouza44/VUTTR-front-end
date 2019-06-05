@@ -15,6 +15,7 @@ import { AddComponent } from './components/add/add.component';
 
 import { DatabaseService } from './service/database.service';
 import { DadosService } from './service/dados.service';
+import { RemoveComponent } from './components/remove/remove.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DadosService } from './service/dados.service';
     FooterComponent,
     MenuComponent,
     HomeComponent,
-    AddComponent
+    AddComponent,
+    RemoveComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { DadosService } from './service/dados.service';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [DatabaseService, DadosService],
+  providers: [DatabaseService, DadosService, RemoveComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
