@@ -6,11 +6,13 @@ import { RouterModule, Routes} from '@angular/router';
 
 //Import components
 import { HomeComponent } from './components/home/home.component';
+import { RemoveComponent } from './components/remove/remove.component';
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'remove/:id', component: RemoveComponent}
 ]
 
 

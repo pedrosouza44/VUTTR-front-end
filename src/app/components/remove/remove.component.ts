@@ -8,35 +8,38 @@ import { DadosService } from '../../service/dados.service';
   styleUrls: ['./remove.component.css']
 })
 export class RemoveComponent implements OnInit {
-  title: any;
 
-  constructor(private dado: DadosService) { }
+
+  constructor(private dado: DadosService) {
+    this.populaTitle();
+    
+   }
 loading = false;
+
+// titulo = [];
+titulo = 'TESTE';
+dados: any;
 
   ngOnInit() {
   }
 
-  testeID(id){
-    console.log("ID REMOVE: ", id)
-    this.loading = true;
-    this.dado.listToolID(id)
+  populaTitle(){
+    let titulo = this.dado.dado.title;
+    this.titulo = titulo;
+    // this.titulo = titulo;
+    console.log("TESTE DE TITLE: ", this.titulo)
+  }
+
+  remover(){
+    let id = this.dado.dado.id
+    // console.log("ID PARA SER REMOVIDO: ", id)
+    this.dado.remove(id)
       .then(data => {
-        this.loading = false
-        console.log("DADOS POR ID: ", data)
-        let t
-        // d = data
-        data.map(item => {
-          // let t
-          // item.title = this.dados
-          t = item.title
-        })
-        this.title = t
-        console.log("TITLE: ", this.title)
+        this.loading = false;
+        console.log("TOOL REMOVIDO COM SUCESSO!")
+        location.reload();
       })
-      .catch(error => {
-        this.loading = true
-        console.log(error)
-      })
+      .catch(error => console.log(error))
   }
 
 }

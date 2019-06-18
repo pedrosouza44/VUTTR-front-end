@@ -32,11 +32,11 @@ export class AddComponent implements OnInit {
     let dados = this.form.value;
     var res = dados.tags.split(" ");
     dados.tags = res;
-    console.log("DADOS PARA ADD: ", dados);
+    // console.log("DADOS PARA ADD: ", dados);
     this.dado.add(dados)
       .then(data => {
         this.loading = false;
-        console.log("DADOS ADICIONADOS: ", data);
+        // console.log("DADOS ADICIONADOS: ", data);
         location.reload();
       })
       .catch(error => {

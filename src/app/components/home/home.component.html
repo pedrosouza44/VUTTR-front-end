@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                                <input type="text" class="form-control" placeholder=" Search..." formControlName="busca" (keyup)="buscar()">
+                                <input type="text" class="form-control" placeholder=" Search..." formControlName="busca" (blur)="buscar()">
                             </div>
                         </div>
                     </div>
@@ -57,16 +57,18 @@
             <div class="box-header">
                 <div class="row">
                     <div class="col-md-10">
-                        <h4 class="modal-title"><a href="{{d.link}}">{{d.title}}</a> </h4>
+                        <h4 class="modal-title"><a href="{{d.link}}"><u>{{d.title}}</u></a></h4>
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#remove" (click)="testeID(d.id)"><i class="fa fa-close"></i> Remove</button>
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#remove" (click)="enviaDados(d)"><i class="fa fa-close"></i> Remove</button>
                     </div>
                 </div>
             </div>
             <div class="box-body">
                 <p>{{d.description}}</p>
-                <p><b> #{{_tags[i]}}</b></p>
+                <p *ngIf="principal != false"><b> #{{_tags[i]}}</b></p>
+                <p *ngIf="tipo == true"><b> #{{_tagsTg[i]}}</b></p>
+                <p *ngIf="tipo == false"><b> #{{_tagsTi[i]}}</b></p>
 
             </div>
         </div>

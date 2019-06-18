@@ -149,7 +149,7 @@ export class DatabaseService {
 
   delete(url, id): any {
     console.log(`URL: ${url}, DADOS:${JSON.stringify(id)}`)
-    return this._http.post(`${this.servidor}${url}`, id, this.header())
+    return this._http.delete(`${this.servidor}${url}`, id)
     .pipe(map((response: Response) => response.json()),
     tap(data => console.log('All: ' + JSON.stringify(data))),
     catchError(this.error))

@@ -18,12 +18,18 @@ export class DadosService {
     private http: Http,
     private router: Router) { }
 
+    dado = {
+      id: '',
+      title: '',
+      popula: false
+    }
+
     add(dados){
       return this.data.post(`/tools`, dados)
     }
 
     remove(id){
-      return this.data.delete(`/tools/`, {id})
+      return this.data.delete(`/tools/${id}`, id)
     }
 
     listTool(){
@@ -34,8 +40,12 @@ export class DadosService {
       return this.data.get(`/tools?q=${id}`)
     }
 
-    listToolTag(){
-      return this.data.get('/tools?tags_like=:busca')
+    listToolTag(tag){
+      return this.data.get(`/tools?tags_like=${tag}`)
+    }
+
+    listToolTitle(title){
+      return this.data.get(`/tools?q=${title}`)
     }
 
 
